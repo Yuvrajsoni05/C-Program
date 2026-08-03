@@ -1,61 +1,67 @@
 #include <iostream>
-
 using namespace std;
 
-int  main(){
 
-    cout << "spiral matrix" << endl;;
-    int n = 5; 
+
+
+int main(){
+
+    int n = 5;
     int matrix[101][101];
-    int row = 0;
-    int col = 0;
-    int direction = 0;
-    int counter = 1;
-    while(counter <= n*n){
-        matrix[row][col] == counter;
-        if (direction == 0){
-            
-            if(col == n-1){
-                direction = 1;
-                row++;
-            }
-            else{
-                col++;
-            }
-        }
-        else if (direction == 1)
-        {
-            if (row == n-1 ){
-                direction = 2;
-                row++;
-            }
-            else{
-                col++;
-            }
-            
-        }
-        else if (direction == 2)
-        {
-            if (col == 0){
-                direction = 3;
-                col--;
-            }
-            else{
-                col--;
-            }
-            
-        }
-        else{
-            row--;
-        }
-        
-        
-        // col++;
-        cout << col << endl;
-        cout << row << endl;
-        // cout << counter << endl;
-        counter++;
-    }
 
+    
+    int top = 0, bottom = n - 1, left = 0, right = n - 1;
+    int ma = 1;
+
+
+while(top <= bottom and left <= right){
+    for (int i =left; i < right+1; i++){
+        matrix[top][i] = ma;
+        ma++;
+    }
+    top = top + 1;
+
+    for (int i = top; i < bottom+1; i++){
+        matrix[i][right] = ma;
+        ma++;
+    }
+    right = right - 1;
+
+    if (top <= bottom){
+        for (int i = right; i >= left; i--){
+            matrix[bottom][i] = ma;
+            ma++;
+        }
+    }
+    bottom = bottom - 1;
+
+
+
+    if (left <= right){
+        for (int i = bottom; i >= top; i--){
+            matrix[i][left] = ma;
+            ma++;
+        }
+    }
+    left = left + 1;
+    
+    
+
+
+
+
+}
+
+
+
+
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+        cout << matrix[i][j] << " ";
+    }
+    cout << endl;
+        
+    }
     return 0;
+
 }
