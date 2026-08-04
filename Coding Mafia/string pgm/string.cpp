@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    char str[] = "Hello world" ;
+    char str[] = "Yuvraj"; ;
     char str2[] = {
           'c' , 'd' , 'o', '2' ,'3' ,  '\0' ,  //'\0'  everything after '\0' is ignored by string functions
           'd', 'd', 'd',
